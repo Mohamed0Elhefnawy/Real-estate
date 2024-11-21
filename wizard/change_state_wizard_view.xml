@@ -1,0 +1,32 @@
+<odoo>
+<!--    for display and style form for tree -->
+    <record id="change_state_view_form" model="ir.ui.view" >
+        <field name="name">change state form</field>
+        <field name="model">change.state</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="property_id"/>
+                    <field name="state" required="1" />
+                    <field name="reason" required="1" />
+                </group>
+                <footer>
+                    <button string="Confirm" type="object" name="confirm_action_change_state" class="btn-secondary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+
+        </field>
+
+    </record>
+
+
+
+<!--action-->
+    <record id="change_state_action" model="ir.actions.act_window" >
+        <field name="name" >Change State</field>
+        <field name="res_model" >change.state</field>
+        <field name="target" >new</field>
+        <field name="view_mode" >form</field>
+    </record>
+</odoo>

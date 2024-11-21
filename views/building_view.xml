@@ -1,0 +1,79 @@
+<odoo>
+<!--    for display tree -->
+    <record id="building_view_tree" model="ir.ui.view" >
+        <field name="name">building tree</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+<!--            for permission user on tree -->
+<!--            multi_edit="1" create="1" edit="1" delete="1"-->
+            <tree class="header_custom" >
+                <field name="no"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+<!--    for display and style form for tree -->
+    <record id="building_view_form" model="ir.ui.view" >
+        <field name="name">building form</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="no"/>
+                        <h1>
+                            <field name="no"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General info" >
+                            <field name="create_time" readonly="1" />
+                            <field name="next_time"/>
+                            <field name="code"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+
+        </field>
+
+    </record>
+
+<!--    search for table building and tree  -->
+
+    <record id="building_view_search" model="ir.ui.view" >
+        <field name="name">building search</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="no"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+<!--action-->
+    <record id="building_action" model="ir.actions.act_window" >
+        <field name="name" >building action</field>
+        <field name="res_model" >building</field>
+    </record>
+    <menuitem
+        id="building_menu_item"
+        name="building pro"
+        parent="properties_menu"
+        action="building_action"
+    />
+</odoo>
